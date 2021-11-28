@@ -1,23 +1,18 @@
 package testPages;
 
-import base.TestBase;
+import base.BaseTest;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.HomePage;
-import steps.HomePageTestSteps;
 
-public class HomePageTest extends TestBase {
-    HomePageTestSteps homePageSteps;
-
-    @BeforeClass
-    public void setUp() {
-        initialization();
-        homePageSteps = new HomePageTestSteps();
-    }
+public class HomePageTest extends BaseTest {
 
     @Test(priority = 1, description = "Check a selection of related products for the 'mobile phone' section")
     public void verifySmartphonePageTitle() {
-        Assert.assertEquals(homePageSteps.getTittle(), "Мобильные телефоны");
+        homePage.clickOnCatalogsPageLink();
+        catalogPage.clickOnElectronicsPageLink();
+        electronicsPage.clickOnMobilePhoneLink();
+        electronicsPage.clickOnSmartphoneLink();
+
+        Assert.assertEquals(smartphonePage.getPageHeaderTitle(), "Мобильные телефоны");
     }
 }
