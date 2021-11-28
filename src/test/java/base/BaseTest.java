@@ -12,11 +12,11 @@ import pages.SmartphonePage;
 import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
-    public WebDriver driver;
-    public HomePage homePage;
-    public CatalogPage catalogPage;
-    public ElectronicsPage electronicsPage;
-    public SmartphonePage smartphonePage;
+    private WebDriver driver;
+    protected HomePage homePage;
+    protected CatalogPage catalogPage;
+    protected ElectronicsPage electronicsPage;
+    protected SmartphonePage smartphonePage;
 
     public static final String ONLINER_URL = "https://www.onliner.by/";
     public static final int IMPLICITLY_WAIT = 10;
@@ -31,7 +31,7 @@ public class BaseTest {
     }
 
     @BeforeClass
-    public void setUpPages(){
+    public void setUpPages() {
         homePage = new HomePage(getDriver());
         catalogPage = new CatalogPage(getDriver());
         electronicsPage = new ElectronicsPage(getDriver());
@@ -39,13 +39,13 @@ public class BaseTest {
     }
 
     @AfterClass
-    public void tearDown(){
+    public void tearDown() {
         if (driver != null) {
             driver.quit();
         }
     }
 
-    public WebDriver getDriver(){
+    public WebDriver getDriver() {
         return driver;
     }
 }

@@ -9,7 +9,8 @@ public class SmartphonePage extends BasePage {
     private WebElement header;
 
     public SmartphonePage(WebDriver driver) {
-        super(driver);}
+        super(driver);
+    }
 
     public String getPageHeaderTitle() {
         return header.getText();

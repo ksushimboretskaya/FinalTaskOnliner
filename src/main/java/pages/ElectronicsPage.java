@@ -11,8 +11,8 @@ public class ElectronicsPage extends BasePage {
     private WebElement smartphoneLink;
 
     public ElectronicsPage(WebDriver driver) {
-    super(driver);
-}
+        super(driver);
+    }
 
     public void clickOnMobilePhoneLink() {
         mobilePhoneLink.click();
