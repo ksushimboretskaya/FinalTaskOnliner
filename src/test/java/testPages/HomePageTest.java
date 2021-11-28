@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class HomePageTest extends BaseTest {
 
-    @Test(priority = 1, description = "Check a selection of related products for the 'mobile phone' section")
+    @Test(priority = 1, description = "Verify smartphone page tittle")
     public void verifySmartphonePageTitle() {
         homePage.clickOnCatalogsPageLink();
         catalogPage.clickOnElectronicsPageLink();
