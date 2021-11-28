@@ -13,6 +13,6 @@ public class HomePageTest extends BaseTest {
         electronicsPage.clickOnMobilePhoneLink();
         electronicsPage.clickOnSmartphoneLink();
 
-        Assert.assertEquals(smartphonePage.getPageHeaderTitle(), "Мобильные телефоны");
+        Assert.assertEquals(smartphonePage.getPageHeaderTitle(), "Мобильные телефоны", "The actual page title doesn't match expected");
     }
 }
