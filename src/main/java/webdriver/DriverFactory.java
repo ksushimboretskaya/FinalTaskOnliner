@@ -8,7 +8,6 @@ import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
     private static final String CHROMEDRIVER_EXE_PATH = "src/main/resources/chromedriver.exe";
-    public static final String ONLINER_URL = "https://www.onliner.by/";
     public static final int IMPLICITLY_WAIT = 10;
 
     public enum BrowserType {FIREFOX, CHROME, EDGE, IE, OPERA}
@@ -20,10 +19,10 @@ public class DriverFactory {
                 driver = getChromeDriver();
                 break;
         }
-        assert driver != null;
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT, TimeUnit.SECONDS);
-        driver.get(ONLINER_URL);
+        if (driver != null) {
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT, TimeUnit.SECONDS);
+        } else System.out.println("Driver not selected");
         System.out.println(type + " browser started");
         return driver;
     }

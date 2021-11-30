@@ -1,7 +1,8 @@
 package base;
 
-import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import pages.CatalogPage;
 import pages.ElectronicsPage;
 import pages.HomePage;
@@ -10,25 +11,23 @@ import webdriver.DriverFactory;
 import webdriver.DriverManager;
 
 public class BaseTest {
-    protected HomePage homePage;
-    protected CatalogPage catalogPage;
-    protected ElectronicsPage electronicsPage;
-    protected SmartphonePage smartphonePage;
+    protected HomePage homePage = new HomePage();
+    protected CatalogPage catalogPage = new CatalogPage();
+    protected ElectronicsPage electronicsPage = new ElectronicsPage();
+    protected SmartphonePage smartphonePage = new SmartphonePage();
+    public static final String ONLINER_URL = "https://www.onliner.by/";
 
-    @BeforeClass
-    public void setUpDriver() {
+    @BeforeSuite
+    public void setUp() {
         DriverManager.setDriver(DriverFactory.getDriver(DriverFactory.BrowserType.CHROME));
     }
 
     @BeforeClass
     public void setUpPages() {
-        homePage = new HomePage(DriverManager.getDriver());
-        catalogPage = new CatalogPage(DriverManager.getDriver());
-        electronicsPage = new ElectronicsPage(DriverManager.getDriver());
-        smartphonePage = new SmartphonePage(DriverManager.getDriver());
+        DriverManager.getDriver().get(ONLINER_URL);
     }
 
-    @AfterClass
+    @AfterSuite
     public void tearDown() {
         DriverManager.quiteDriver();
     }
