@@ -9,6 +9,6 @@ public class BasePage {
 
     public BasePage() {
         driver = DriverManager.getDriver();
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(this.driver, this);
     }
 }

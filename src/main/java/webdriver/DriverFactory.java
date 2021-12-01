@@ -21,6 +21,7 @@ public class DriverFactory {
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
         System.out.println(type + "browser started");
         return driver;
     }

@@ -20,9 +20,9 @@ public class BaseTest {
 
     @BeforeSuite
     public void setUp() {
-        if (DriverManager.getDriver() != null) {
+        if (DriverManager.getDriver() == null) {
             DriverManager.setDriver(DriverFactory.getDriver(BrowserConfig.getType()));
-        } else DriverManager.setDriver(DriverFactory.getDriver(DriverFactory.BrowserType.CHROME));
+        }
     }
 
     @BeforeClass
@@ -32,6 +32,6 @@ public class BaseTest {
 
     @AfterSuite
     public void tearDown() {
-        DriverManager.quiteDriver();
+        DriverManager.quitDriver();
     }
 }
