@@ -18,6 +18,8 @@ public class DriverFactory {
             case CHROME:
                 driver = getChromeDriver();
                 break;
+            default:
+                driver = getChromeDriver();
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT, TimeUnit.SECONDS);
