@@ -1,5 +1,6 @@
 package base;
 
+import configuration.BrowserConfig;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
@@ -19,7 +20,9 @@ public class BaseTest {
 
     @BeforeSuite
     public void setUp() {
-        DriverManager.setDriver(DriverFactory.getDriver(DriverFactory.BrowserType.CHROME));
+        if (DriverManager.getDriver() != null) {
+            DriverManager.setDriver(DriverFactory.getDriver(BrowserConfig.getType()));
+        } else DriverManager.setDriver(DriverFactory.getDriver(DriverFactory.BrowserType.CHROME));
     }
 
     @BeforeClass
