@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class DriverFactory {
     private static final String CHROMEDRIVER_EXE_PATH = "src/main/resources/chromedriver.exe";
     public static final int IMPLICITLY_WAIT = 10;
+    public static final int PAGE_LOAD_TIMEOUT = 40;
 
     public enum BrowserType {FIREFOX, CHROME, EDGE, IE}
 
@@ -19,11 +20,11 @@ public class DriverFactory {
                 driver = getChromeDriver();
                 break;
             default:
-                driver = getChromeDriver();
+                throw new IllegalArgumentException("Invalid browser name" + type);
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(IMPLICITLY_WAIT, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
         System.out.println(type + "browser started");
         return driver;
     }

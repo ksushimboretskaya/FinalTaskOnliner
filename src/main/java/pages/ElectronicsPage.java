@@ -13,11 +13,13 @@ public class ElectronicsPage extends BasePage {
         super();
     }
 
-    public void clickOnMobilePhoneLink() {
+    public ElectronicsPage clickOnMobilePhoneLink() {
         mobilePhoneLink.click();
+        return new ElectronicsPage();
     }
 
-    public void clickOnSmartphoneLink() {
+    public SmartphonePage clickOnSmartphoneLink() {
         smartphoneLink.click();
+        return new SmartphonePage();
     }
 }

@@ -11,7 +11,8 @@ public class CatalogPage extends BasePage {
         super();
     }
 
-    public void clickOnElectronicsPageLink() {
+    public ElectronicsPage clickOnElectronicsPageLink() {
         electronicsLink.click();
+        return new ElectronicsPage();
     }
 }

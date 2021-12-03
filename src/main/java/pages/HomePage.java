@@ -11,7 +11,8 @@ public class HomePage extends BasePage {
         super();
     }
 
-    public void clickOnCatalogsPageLink() {
+    public CatalogPage clickOnCatalogsPageLink() {
         catalogLink.click();
+        return new CatalogPage();
     }
 }
