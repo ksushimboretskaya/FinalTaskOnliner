@@ -14,7 +14,7 @@ public class DriverFactory {
     public enum BrowserType {FIREFOX, CHROME, EDGE, IE}
 
     public static WebDriver getDriver(BrowserType type) {
-        WebDriver driver = null;
+        WebDriver driver;
         switch (type) {
             case CHROME:
                 driver = getChromeDriver();
