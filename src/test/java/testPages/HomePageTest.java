@@ -9,8 +9,7 @@ public class HomePageTest extends BaseTest {
 
     @Test(priority = 1, description = "Verify smartphone page tittle")
     public void verifySmartphonePageTitle() {
-        HomePage homePage = new HomePage();
-        String actualSmartphonePageTittle = homePage.clickOnCatalogsPageLink()
+        String actualSmartphonePageTittle = new HomePage().clickOnCatalogsPageLink()
                 .clickOnElectronicsPageLink()
                 .clickOnMobilePhoneLink()
                 .clickOnSmartphoneLink()

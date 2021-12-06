@@ -15,7 +15,7 @@ public class ElectronicsPage extends BasePage {
 
     public ElectronicsPage clickOnMobilePhoneLink() {
         mobilePhoneLink.click();
-        return new ElectronicsPage();
+        return this;
     }
 
     public SmartphonePage clickOnSmartphoneLink() {
