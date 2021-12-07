@@ -18,13 +18,13 @@ public class ElectronicsPage extends BasePage {
 
     public ElectronicsPage clickOnMobilePhoneLink() {
         mobilePhoneLink.click();
-        logger.debug("Clicked successfully on the button : " + mobilePhoneLink.getText());
+        logger.debug("Clicked successfully on the mobile phone button");
         return this;
     }
 
     public SmartphonePage clickOnSmartphoneLink() {
         smartphoneLink.click();
-        logger.debug("Clicked successfully on the button : " + smartphoneLink.getText());
+        logger.debug("Clicked successfully on the smartphone page button");
         return new SmartphonePage();
     }
 }

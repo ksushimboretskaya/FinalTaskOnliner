@@ -16,7 +16,7 @@ public class CatalogPage extends BasePage {
 
     public ElectronicsPage clickOnElectronicsPageLink() {
         electronicsLink.click();
-        logger.debug("Clicked successfully on the button : " + electronicsLink.getText());
+        logger.debug("Clicked successfully on the electronics button");
         return new ElectronicsPage();
     }
 }

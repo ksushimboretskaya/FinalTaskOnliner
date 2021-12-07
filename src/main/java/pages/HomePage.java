@@ -16,7 +16,7 @@ public class HomePage extends BasePage {
 
     public CatalogPage clickOnCatalogsPageLink() {
         catalogLink.click();
-        logger.debug("Clicked successfully on the button : " + catalogLink.getText());
+        logger.debug("Clicked successfully on the catalog page button");
         return new CatalogPage();
     }
 }

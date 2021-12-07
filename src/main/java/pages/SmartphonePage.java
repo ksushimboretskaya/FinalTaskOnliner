@@ -15,7 +15,7 @@ public class SmartphonePage extends BasePage {
     }
 
     public String getPageHeaderTitle() {
-        logger.debug("Smartphone page tittle: " + header.getText());
+        logger.debug("Successfully retrieved smartphone page title");
         return header.getText();
     }
 }
