@@ -1,5 +1,6 @@
 package pages;
 
+import elements.CustomElementDecorator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import webdriver.DriverManager;
@@ -9,6 +10,6 @@ public class BasePage {
 
     public BasePage() {
         driver = DriverManager.getDriver();
-        PageFactory.initElements(this.driver, this);
+        PageFactory.initElements(new CustomElementDecorator(this.driver), this);
     }
 }
