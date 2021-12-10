@@ -8,14 +8,14 @@ public class HomePage extends BasePage {
     private static final Logger logger = Logger.getLogger("Home page logger");
 
     @FindBy(xpath = "//span[contains(@class,'b-main-navigation__text')and text() = 'Каталог']")
-    private CustomButton catalogLink;
+    private CustomButton catalogButton;
 
     public HomePage() {
         super();
     }
 
-    public CatalogPage clickOnCatalogsPageLink() {
-        catalogLink.click();
+    public CatalogPage clickOnCatalogsPageButton() {
+        catalogButton.click();
         logger.debug("Clicked successfully on the catalog page button");
         return new CatalogPage();
     }

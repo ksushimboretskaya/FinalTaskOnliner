@@ -8,14 +8,14 @@ public class SmartphonePage extends BasePage {
     private static final Logger logger = Logger.getLogger("Smartphone page logger");
 
     @FindBy(xpath = "//*[contains(@class,'schema-header__title') and text()='Мобильные телефоны']")
-    private CustomTextElement header;
+    private CustomTextElement headerText;
 
     public SmartphonePage() {
         super();
     }
 
-    public String getPageHeaderTitle() {
+    public String getPageHeaderText() {
         logger.debug("Successfully retrieved smartphone page title");
-        return header.getText();
+        return headerText.getText();
     }
 }
