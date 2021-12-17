@@ -9,12 +9,10 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
-    private static final String CHROMEDRIVER_EXE_PATH = "src/main/resources/chromedriver.exe";
-    private static final Logger logger = LogManager.getLogger("Driver factory logger");
     public static final int IMPLICITLY_WAIT = 10;
     public static final int PAGE_LOAD_TIMEOUT = 40;
-
-    public enum BrowserType {FIREFOX, CHROME, EDGE, IE}
+    private static final String CHROMEDRIVER_EXE_PATH = "src/main/resources/chromedriver.exe";
+    private static final Logger logger = LogManager.getLogger("Driver factory logger");
 
     public static WebDriver getDriver(BrowserType type) {
         WebDriver driver;
@@ -36,4 +34,6 @@ public class DriverFactory {
         System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, CHROMEDRIVER_EXE_PATH);
         return new ChromeDriver();
     }
+
+    public enum BrowserType {FIREFOX, CHROME, EDGE, IE}
 }
