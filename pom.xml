@@ -20,6 +20,8 @@
         <allure-testng-version>2.17.1</allure-testng-version>
         <ashot-version>1.5.4</ashot-version>
         <allure-environment-writer>1.0.0</allure-environment-writer>
+        <jave-native-win64>2.4.5</jave-native-win64>
+        <monte-screen-recorder>0.7.7.0</monte-screen-recorder>
     </properties>
 
     <dependencies>
@@ -42,6 +44,21 @@
             <groupId>com.github.automatedowl</groupId>
             <artifactId>allure-environment-writer</artifactId>
             <version>${allure-environment-writer}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.stephenc.monte</groupId>
+            <artifactId>monte-screen-recorder</artifactId>
+            <version>${monte-screen-recorder}</version>
+        </dependency>
+        <dependency>
+            <groupId>ws.schild</groupId>
+            <artifactId>jave-core</artifactId>
+            <version>${jave-native-win64}</version>
+        </dependency>
+        <dependency>
+            <groupId>ws.schild</groupId>
+            <artifactId>jave-native-win64</artifactId>
+            <version>${jave-native-win64}</version>
         </dependency>
         <dependency>
             <groupId>ru.yandex.qatools.ashot</groupId>

@@ -19,10 +19,16 @@ import java.nio.file.Paths;
 public class OnlinerTestListener implements ITestListener {
     public static final String LOGFILE_NAME = "logfile.log";
     private static final Logger logger = Logger.getLogger(OnlinerTestListener.class);
+    private final VideoRecorder recorder = new VideoRecorder();
 
     @Attachment(value = "logfile", type = "text/plain")
     public static byte[] addFileToAllureReport() throws IOException {
         return Files.readAllBytes(Paths.get(LOGFILE_NAME));
+    }
+
+    @Attachment(value = "video", type = "video/mp4")
+    public static byte[] addVideoToAllureReport(File file) throws IOException {
+        return Files.readAllBytes(Paths.get(String.valueOf(file)));
     }
 
     public static void clearTheFile(File file) throws IOException {
@@ -36,6 +42,7 @@ public class OnlinerTestListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         System.out.println(result.getName() + " test case started");
+        recorder.startRecording();
     }
 
     @Override
@@ -43,6 +50,7 @@ public class OnlinerTestListener implements ITestListener {
         logger.info("The name of the testcase passed is :" + result.getName());
         try {
             addFileToAllureReport();
+            addVideoToAllureReport(recorder.stopRecording(result.getName()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -51,13 +59,13 @@ public class OnlinerTestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         logger.info("The name of the testcase failed is :" + result.getName());
-        // Allure ScreenShotRobot
         if (DriverManager.getDriver() != null) {
             System.out.println("Screenshot captured for test case:" + result.getName());
             saveScreenshotPNG();
         }
         try {
             addFileToAllureReport();
+            addVideoToAllureReport(recorder.stopRecording(result.getName()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -68,6 +76,7 @@ public class OnlinerTestListener implements ITestListener {
         logger.info("The name of the testcase skipped is :" + result.getName());
         try {
             addFileToAllureReport();
+            addVideoToAllureReport(recorder.stopRecording(result.getName()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -78,6 +87,7 @@ public class OnlinerTestListener implements ITestListener {
         logger.info("The name of the testcase failed but within success percentage is :" + result.getName());
         try {
             addFileToAllureReport();
+            addVideoToAllureReport(recorder.stopRecording(result.getName()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -88,6 +98,7 @@ public class OnlinerTestListener implements ITestListener {
         logger.info("The name of the test failed with timeout is :" + result.getName());
         try {
             addFileToAllureReport();
+            addVideoToAllureReport(recorder.stopRecording(result.getName()));
         } catch (IOException e) {
             e.printStackTrace();
         }
