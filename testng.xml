@@ -8,6 +8,11 @@
                     <include name="verifySmartphonePageTitle"/>
                 </methods>
             </class>
+            <class name="testPages.ServicesPageTest">
+                <methods>
+                    <include name="verifyFilterAbility"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

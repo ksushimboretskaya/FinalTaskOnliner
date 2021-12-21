@@ -11,6 +11,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//span[contains(@class,'b-main-navigation__text')and text() = 'Каталог']")
     private CustomButton catalogButton;
 
+    @FindBy(xpath = "//span[contains(@class,'b-main-navigation__text')and text() = 'Услуги']")
+    private CustomButton servicesButton;
+
     public HomePage() {
         super();
     }
@@ -20,5 +23,12 @@ public class HomePage extends BasePage {
         catalogButton.click();
         logger.debug("Clicked successfully on the catalog page button");
         return new CatalogPage();
+    }
+
+    @Step("Click on the services page button")
+    public ServicesPage clickOnTheServicesPageButton() {
+        servicesButton.click();
+        logger.debug("Clicked successfully on the services page button");
+        return new ServicesPage();
     }
 }
