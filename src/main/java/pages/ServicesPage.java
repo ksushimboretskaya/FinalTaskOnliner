@@ -4,7 +4,6 @@ import elements.CustomCheckBox;
 import elements.CustomTextElement;
 import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ServicesPage extends BasePage {
