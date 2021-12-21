@@ -1,5 +1,6 @@
 package pages;
 
+import elements.CustomCheckBox;
 import elements.CustomTextElement;
 import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
@@ -10,7 +11,7 @@ public class ServicesPage extends BasePage {
     private static final Logger logger = Logger.getLogger("Services page logger");
 
     @FindBy(xpath = "(//*[contains(@class,'i-checkbox service-form__checkbox service-form__checkbox_base')])[1]")
-    private WebElement regionCheckBox;
+    private CustomCheckBox regionCheckBox;
 
     @FindBy(xpath = "//span[contains(@class,'service-offers__details-item service-offers__details-item_map-marker ng-binding ng-scope')]")
     private CustomTextElement location;
