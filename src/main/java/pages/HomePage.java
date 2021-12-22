@@ -14,6 +14,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//span[contains(@class,'b-main-navigation__text')and text() = 'Услуги']")
     private CustomButton servicesButton;
 
+    @FindBy(className = "onliner_logo")
+    private CustomButton logo;
+
     public HomePage() {
         super();
     }
@@ -30,5 +33,18 @@ public class HomePage extends BasePage {
         servicesButton.click();
         logger.debug("Clicked successfully on the services page button");
         return new ServicesPage();
+    }
+
+    @Step("Click on the logotype")
+    public HomePage clickOnTheLogotype() {
+        logo.click();
+        logger.debug("Clicked successfully on the logo");
+        return new HomePage();
+    }
+
+    @Step("Get page url")
+    public String getPageUrl() {
+        logger.debug("Successfully retrieved current URL");
+        return driver.getCurrentUrl();
     }
 }

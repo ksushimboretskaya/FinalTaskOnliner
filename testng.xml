@@ -6,6 +6,7 @@
             <class name="testPages.HomePageTest">
                 <methods>
                     <include name="verifySmartphonePageTitle"/>
+                    <include name="verifyLogoOnTheSite"/>
                 </methods>
             </class>
             <class name="testPages.ServicesPageTest">
