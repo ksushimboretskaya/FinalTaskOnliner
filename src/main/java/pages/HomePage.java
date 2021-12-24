@@ -27,6 +27,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "(//span[contains(@class,'_u js-weather')])[1]")
     private CustomButton weatherButton;
 
+    @FindBy(xpath = "//span[contains(@class,'_u js-currency-amount')]")
+    private CustomButton courseButton;
+
     public HomePage() {
         super();
     }
@@ -83,5 +86,12 @@ public class HomePage extends BasePage {
         weatherButton.click();
         logger.debug("Clicked successfully on the weather page button");
         return new WeatherPage();
+    }
+
+    @Step("Open course page")
+    public CoursePage openCoursePage() {
+        courseButton.click();
+        logger.debug("Clicked successfully on the course page button");
+        return new CoursePage();
     }
 }

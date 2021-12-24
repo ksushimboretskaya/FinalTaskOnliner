@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import pages.HomePage;
 
 public class WeatherPageTest extends BaseTest {
-    public static final String WEATHER_PAGE_URL = "https://pogoda.onliner.by/";
+    private static final String WEATHER_PAGE_URL = "https://pogoda.onliner.by/";
 
     @Test(priority = 6, description = "[TC#6] - Check weather icon")
     @Description("Test case description: check weather icon")

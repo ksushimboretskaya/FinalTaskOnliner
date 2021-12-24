@@ -1,0 +1,5 @@
+2021-12-21 21:36:10 DEBUG Base test logger     - Opening website: https://www.onliner.by/
+2021-12-21 21:36:15 DEBUG Home page logger     - Clicked successfully on the services page button
+2021-12-21 21:36:17 INFO  Services page logger     - Clicked successfully on the checkbox with text 'Минск'
+2021-12-21 21:36:17 DEBUG Services page logger     - Successfully retrieved region
+2021-12-21 21:36:17 INFO  listeners.OnlinerTestListener     - The name of the testcase passed is :verifyFilterAbility
