@@ -21,6 +21,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//*[contains(@class,'fast-search__input')]")
     private CustomTextElement searchField;
 
+    @FindBy(xpath = "//*[contains(@class,'auth-bar__item auth-bar__item--text')and text() = 'Вход']")
+    private CustomButton signInButton;
+
     public HomePage() {
         super();
     }
@@ -63,5 +66,12 @@ public class HomePage extends BasePage {
     public String getSearchData() {
         logger.debug("Successfully retrieved search data");
         return searchField.getText();
+    }
+
+    @Step("Click on the sign in button")
+    public SignInPage openSignInForm() {
+        signInButton.click();
+        logger.debug("Clicked successfully on the sign in button");
+        return new SignInPage();
     }
 }
