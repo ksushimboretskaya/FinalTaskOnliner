@@ -18,4 +18,9 @@ public class CustomTextElementImpl implements CustomTextElement {
     public void sendKeys(String string){
         wrappedElement.sendKeys(string);
     }
+
+    @Override
+    public boolean isDisplayed(){
+       return wrappedElement.isDisplayed();
+    }
 }

@@ -18,9 +18,11 @@ public class SignInPage extends BasePage {
     @FindBy(xpath = "(//button[@type='submit'])[2]")
     private CustomButton submitSignInButton;
 
-
     @FindBy(xpath = "(//*[contains(@class,'auth-form__description auth-form__description_error auth-form__description_base auth-form__description_extended-other')])[1]")
     private CustomTextElement signInMessage;
+
+    @FindBy(xpath = "//*[contains(@class,'auth-form__link auth-form__link_primary auth-form__link_small')]")
+    private CustomButton registrationButton;
 
     public SignInPage() {
         super();
@@ -48,5 +50,12 @@ public class SignInPage extends BasePage {
         submitSignInButton.click();
         logger.debug("Clicked successfully on the submit sign in button");
         return new SignInPage();
+    }
+
+    @Step("Open registration page")
+    public RegistrationPage openRegistrationPage() {
+        registrationButton.click();
+        logger.debug("Clicked successfully on the registration page button");
+        return new RegistrationPage();
     }
 }
