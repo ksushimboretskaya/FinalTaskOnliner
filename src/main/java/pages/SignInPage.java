@@ -37,9 +37,16 @@ public class SignInPage extends BasePage {
         return new SignInPage();
     }
 
-    @Step("verifySignIn")
+    @Step("Verify SignIn")
     public String getSignInMessage() {
         logger.debug("Successfully retrieved sign in message");
         return signInMessage.getText();
+    }
+
+    @Step("Sign in without login and password")
+    public SignInPage signInWithoutLoginAndPassword() {
+        submitSignInButton.click();
+        logger.debug("Clicked successfully on the submit sign in button");
+        return new SignInPage();
     }
 }
