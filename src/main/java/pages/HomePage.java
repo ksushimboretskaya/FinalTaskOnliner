@@ -15,6 +15,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//span[contains(@class,'b-main-navigation__text')and text() = 'Услуги']")
     private CustomButton servicesButton;
 
+    @FindBy(xpath = "//span[contains(@class,'b-main-navigation__text')and text() = 'Форум']")
+    private CustomButton forumButton;
+
     @FindBy(className = "onliner_logo")
     private CustomButton logo;
 
@@ -93,5 +96,12 @@ public class HomePage extends BasePage {
         courseButton.click();
         logger.debug("Clicked successfully on the course page button");
         return new CoursePage();
+    }
+
+    @Step("Open forum page")
+    public ForumPage openForumPage() {
+        forumButton.click();
+        logger.debug("Clicked successfully on the forum page button");
+        return new ForumPage();
     }
 }
