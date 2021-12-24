@@ -1,0 +1,7 @@
+2021-12-19 20:22:15 DEBUG Base test logger     - Opening website: https://www.onliner.by/
+2021-12-19 20:22:18 DEBUG Home page logger     - Clicked successfully on the catalog page button
+2021-12-19 20:22:18 DEBUG Catalog page logger     - Clicked successfully on the electronics button
+2021-12-19 20:22:19 DEBUG Electronics page logger     - Clicked successfully on the mobile phone button
+2021-12-19 20:22:24 DEBUG Electronics page logger     - Clicked successfully on the smartphone page button
+2021-12-19 20:22:24 DEBUG Smartphone page logger     - Successfully retrieved smartphone page title
+2021-12-19 20:22:25 INFO  listeners.OnlinerTestListener     - The name of the testcase passed is :verifySmartphonePageTitle

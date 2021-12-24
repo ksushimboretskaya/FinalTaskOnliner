@@ -1,6 +1,7 @@
 package pages;
 
 import elements.CustomButton;
+import elements.CustomTextElement;
 import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.support.FindBy;
@@ -16,6 +17,9 @@ public class HomePage extends BasePage {
 
     @FindBy(className = "onliner_logo")
     private CustomButton logo;
+
+    @FindBy(xpath = "//*[contains(@class,'fast-search__input')]")
+    private CustomTextElement searchField;
 
     public HomePage() {
         super();
@@ -46,5 +50,18 @@ public class HomePage extends BasePage {
     public String getPageUrl() {
         logger.debug("Successfully retrieved current URL");
         return driver.getCurrentUrl();
+    }
+
+    @Step("Input text in the search field")
+    public HomePage textInput() {
+        searchField.sendKeys("Дом в Минске");
+        logger.debug("Successfully input text in the search field");
+        return new HomePage();
+    }
+
+    @Step("Retrieve search data")
+    public String getSearchData() {
+        logger.debug("Successfully retrieved search data");
+        return searchField.getText();
     }
 }

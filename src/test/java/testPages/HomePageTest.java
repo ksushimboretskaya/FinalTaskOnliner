@@ -27,6 +27,14 @@ public class HomePageTest extends BaseTest {
     @Description("Test case description:  Check logo on the site")
     public void verifyLogoOnTheSite() {
         String currentURL = new HomePage().clickOnTheLogotype().getPageUrl();
-        Assert.assertEquals(currentURL, ONLINER_URL, "The actual page title doesn't match expected");
+        Assert.assertEquals(currentURL, ONLINER_URL, "The actual page doesn't match expected");
+    }
+
+    @Test(priority = 3, description = "[TC#3 - Check searching system")
+    @Description("Test case description: check searching system with negative data")
+    public void verifySearchingSystemWithNegativeData() {
+        String actualSearchData = new HomePage().textInput().getSearchData();
+
+        Assert.assertNotEquals(actualSearchData, "Дом в Минске", "The actual search data is match expected");
     }
 }
