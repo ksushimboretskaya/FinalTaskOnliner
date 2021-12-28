@@ -2,13 +2,13 @@ package testPages;
 
 import base.BaseTest;
 import io.qameta.allure.Description;
-import listeners.OnlinerTestListener;
+import listeners.TestListener;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.HomePage;
 
-@Listeners(OnlinerTestListener.class)
+@Listeners(TestListener.class)
 public class HomePageTest extends BaseTest {
 
     @Test(priority = 1, description = "[TC#1] - Verify smartphone page tittle")

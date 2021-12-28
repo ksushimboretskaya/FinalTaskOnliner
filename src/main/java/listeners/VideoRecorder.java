@@ -3,6 +3,8 @@ package listeners;
 import org.monte.media.Format;
 import org.monte.media.math.Rational;
 import org.monte.screenrecorder.ScreenRecorder;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Point;
 import webdriver.DriverManager;
 import ws.schild.jave.*;
 
@@ -15,9 +17,9 @@ import static org.monte.media.FormatKeys.*;
 import static org.monte.media.VideoFormatKeys.*;
 
 public class VideoRecorder {
+
     private final String RECORD_DIRECTORY = "videos\\";
     private ScreenRecorder screenRecorder;
-    File newFileName = null;
 
     public void startRecording() {
         try {
@@ -25,8 +27,8 @@ public class VideoRecorder {
                     .getLocalGraphicsEnvironment().getDefaultScreenDevice()
                     .getDefaultConfiguration();
             File dir = new File(RECORD_DIRECTORY);
-            org.openqa.selenium.Point point = DriverManager.getDriver().manage().window().getPosition();
-            org.openqa.selenium.Dimension dimension = DriverManager.getDriver().manage().window().getSize();
+            Point point = DriverManager.getDriver().manage().window().getPosition();
+            Dimension dimension = DriverManager.getDriver().manage().window().getSize();
             Rectangle rectangle = new Rectangle(point.x, point.y,
                     dimension.width, dimension.height);
             this.screenRecorder = new ScreenRecorder(gc, rectangle,
@@ -43,11 +45,12 @@ public class VideoRecorder {
                     dir);
             this.screenRecorder.start();
         } catch (Exception e) {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
     public File stopRecording(String recordName) {
+        File newFileName = null;
         try {
             this.screenRecorder.stop();
             if (recordName != null) {

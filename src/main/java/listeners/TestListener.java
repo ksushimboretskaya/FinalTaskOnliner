@@ -10,16 +10,16 @@ import org.testng.ITestResult;
 import webdriver.DriverManager;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class OnlinerTestListener implements ITestListener {
-    public static final String LOGFILE_NAME = "logfile.log";
-    private static final Logger logger = Logger.getLogger(OnlinerTestListener.class);
+public class TestListener implements ITestListener {
+
+    private static final String LOGFILE_NAME = "logfile.log";
+    private static final Logger logger = Logger.getLogger("Test listener logger");
     private final VideoRecorder recorder = new VideoRecorder();
+    private String testName;
 
     @Attachment(value = "logfile", type = "text/plain")
     public static byte[] addFileToAllureReport() throws IOException {
@@ -31,26 +31,20 @@ public class OnlinerTestListener implements ITestListener {
         return Files.readAllBytes(Paths.get(String.valueOf(file)));
     }
 
-    public static void clearTheFile(File file) throws IOException {
-        FileWriter fileWriter = new FileWriter(file, false);
-        PrintWriter printWriter = new PrintWriter(fileWriter, false);
-        printWriter.flush();
-        printWriter.close();
-        printWriter.close();
-    }
-
     @Override
     public void onTestStart(ITestResult result) {
-        System.out.println(result.getName() + " test case started");
+        testName = result.getName();
+        logger.info("Test [" + testName + "] has started");
         recorder.startRecording();
     }
 
     @Override
     public void onTestSuccess(ITestResult result) {
-        logger.info("The name of the testcase passed is :" + result.getName());
+        testName = result.getName();
+        logger.info("Test [" + testName + "] has passed");
         try {
             addFileToAllureReport();
-            addVideoToAllureReport(recorder.stopRecording(result.getName()));
+            addVideoToAllureReport(recorder.stopRecording(testName));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -58,14 +52,14 @@ public class OnlinerTestListener implements ITestListener {
 
     @Override
     public void onTestFailure(ITestResult result) {
-        logger.info("The name of the testcase failed is :" + result.getName());
+        testName = result.getName();
+        logger.info("Test [" + testName + "] has failed");
         if (DriverManager.getDriver() != null) {
-            System.out.println("Screenshot captured for test case:" + result.getName());
             saveScreenshotPNG();
         }
         try {
             addFileToAllureReport();
-            addVideoToAllureReport(recorder.stopRecording(result.getName()));
+            addVideoToAllureReport(recorder.stopRecording(testName));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -73,10 +67,11 @@ public class OnlinerTestListener implements ITestListener {
 
     @Override
     public void onTestSkipped(ITestResult result) {
-        logger.info("The name of the testcase skipped is :" + result.getName());
+        testName = result.getName();
+        logger.info("Test [" + testName + "] has skipped");
         try {
             addFileToAllureReport();
-            addVideoToAllureReport(recorder.stopRecording(result.getName()));
+            addVideoToAllureReport(recorder.stopRecording(testName));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -84,10 +79,11 @@ public class OnlinerTestListener implements ITestListener {
 
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-        logger.info("The name of the testcase failed but within success percentage is :" + result.getName());
+        testName = result.getName();
+        logger.info("Test [" + testName + "] has failed but within success percentage");
         try {
             addFileToAllureReport();
-            addVideoToAllureReport(recorder.stopRecording(result.getName()));
+            addVideoToAllureReport(recorder.stopRecording(testName));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -95,10 +91,11 @@ public class OnlinerTestListener implements ITestListener {
 
     @Override
     public void onTestFailedWithTimeout(ITestResult result) {
-        logger.info("The name of the test failed with timeout is :" + result.getName());
+        testName = result.getName();
+        logger.info("Test[" + testName + "] has failed with timeout");
         try {
             addFileToAllureReport();
-            addVideoToAllureReport(recorder.stopRecording(result.getName()));
+            addVideoToAllureReport(recorder.stopRecording(testName));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -106,11 +103,7 @@ public class OnlinerTestListener implements ITestListener {
 
     @Override
     public void onStart(ITestContext context) {
-        try {
-            clearTheFile(new File(LOGFILE_NAME));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
     @Override
