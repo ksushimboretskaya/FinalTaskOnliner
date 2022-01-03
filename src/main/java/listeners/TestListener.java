@@ -45,7 +45,7 @@ public class TestListener implements ITestListener {
             addFileToAllureReport();
             addVideoToAllureReport(recorder.stopRecording(testName));
         } catch (IOException e) {
-            throw new IllegalArgumentException("Unable to add file: " + e.getMessage());
+            logger.error("Unable to add file: " + e.getMessage());
         }
     }
 
@@ -60,7 +60,7 @@ public class TestListener implements ITestListener {
             addFileToAllureReport();
             addVideoToAllureReport(recorder.stopRecording(testName));
         } catch (IOException e) {
-            throw new IllegalArgumentException("Unable to add file: " + e.getMessage());
+            logger.error("Unable to add file: " + e.getMessage());
         }
     }
 
@@ -72,7 +72,7 @@ public class TestListener implements ITestListener {
             addFileToAllureReport();
             addVideoToAllureReport(recorder.stopRecording(testName));
         } catch (IOException e) {
-            throw new IllegalArgumentException("Unable to add file: " + e.getMessage());
+            logger.debug("Unable to add file: " + e.getMessage());
         }
     }
 
@@ -84,7 +84,7 @@ public class TestListener implements ITestListener {
             addFileToAllureReport();
             addVideoToAllureReport(recorder.stopRecording(testName));
         } catch (IOException e) {
-            throw new IllegalArgumentException("Unable to add file: " + e.getMessage());
+            logger.error("Unable to add file: " + e.getMessage());
         }
     }
 
@@ -96,7 +96,7 @@ public class TestListener implements ITestListener {
             addFileToAllureReport();
             addVideoToAllureReport(recorder.stopRecording(testName));
         } catch (IOException e) {
-            throw new IllegalArgumentException("Unable to add file: " + e.getMessage());
+            logger.error("Unable to add file: " + e.getMessage());
         }
     }
 

@@ -1,5 +1,6 @@
 package listeners;
 
+import exceptions.VideoRecordException;
 import org.monte.media.Format;
 import org.monte.media.math.Rational;
 import org.monte.screenrecorder.ScreenRecorder;
@@ -38,15 +39,15 @@ public class VideoRecorder {
             Dimension dimension = DriverManager.getDriver().manage().window().getSize();
             Rectangle rectangle = new Rectangle(point.x, point.y, dimension.width, dimension.height);
             this.screenRecorder = new ScreenRecorder(graphicsConfiguration, rectangle,
-                    new Format(MediaTypeKey, MediaType.FILE, MimeTypeKey, MIME_AVI), // add file format
+                    new Format(MediaTypeKey, MediaType.FILE, MimeTypeKey, MIME_AVI),
                     new Format(MediaTypeKey, MediaType.VIDEO, EncodingKey, ENCODING_AVI_TECHSMITH_SCREEN_CAPTURE,
                             CompressorNameKey, ENCODING_AVI_TECHSMITH_SCREEN_CAPTURE, DepthKey, SCREEN_DEPTH_VALUE, FrameRateKey,
-                            Rational.valueOf(SCREEN_FRAME_RATE), QualityKey, QUALITY_VALUE, KeyFrameIntervalKey, FRAME_INTERVAL_VALUE), // add screen format
-                    new Format(MediaTypeKey, MediaType.VIDEO, EncodingKey, MOUSE_COLOR, FrameRateKey, Rational.valueOf(MOUSE_FRAME_RATE)), // add mouse format
-                    null, file); // add audio format and movie folder
+                            Rational.valueOf(SCREEN_FRAME_RATE), QualityKey, QUALITY_VALUE, KeyFrameIntervalKey, FRAME_INTERVAL_VALUE),
+                    new Format(MediaTypeKey, MediaType.VIDEO, EncodingKey, MOUSE_COLOR, FrameRateKey, Rational.valueOf(MOUSE_FRAME_RATE)),
+                    null, file);
             this.screenRecorder.start();
         } catch (IOException | AWTException e) {
-            throw new IllegalArgumentException(e.getMessage());
+            throw new VideoRecordException(e.getMessage());
         }
     }
 
@@ -55,10 +56,10 @@ public class VideoRecorder {
         File convertedFile;
         try {
             this.screenRecorder.stop();
-                convertedFile = new File(String.format("%s%s%s.mp4", RECORD_DIRECTORY, recordName, dateFormat.format(new Date())));
-                this.screenRecorder.getCreatedMovieFiles().get(0).renameTo(convertedFile);
+            convertedFile = new File(String.format("%s%s%s.mp4", RECORD_DIRECTORY, recordName, dateFormat.format(new Date())));
+            this.screenRecorder.getCreatedMovieFiles().get(0).renameTo(convertedFile);
         } catch (IOException e) {
-            throw new IllegalArgumentException("Unable to stop screen recorder: " + e.getMessage());
+            throw new VideoRecordException("Unable to stop screen recorder: " + e.getMessage());
         }
         return AviToMp4(convertedFile);
     }
@@ -78,7 +79,7 @@ public class VideoRecorder {
         try {
             encoder.encode(multimediaObject, target, attrs);
         } catch (EncoderException e) {
-            throw new IllegalArgumentException("Unable to encode file: " + e.getMessage());
+            throw new VideoRecordException("Unable to encode file: " + e.getMessage());
         }
         return target;
     }
