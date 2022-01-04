@@ -1,6 +1,7 @@
 package pages;
 
 import elements.CustomButton;
+import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.support.FindBy;
 
@@ -14,6 +15,7 @@ public class HomePage extends BasePage {
         super();
     }
 
+    @Step("Click on the catalogs page button")
     public CatalogPage clickOnCatalogsPageButton() {
         catalogButton.click();
         logger.debug("Clicked successfully on the catalog page button");

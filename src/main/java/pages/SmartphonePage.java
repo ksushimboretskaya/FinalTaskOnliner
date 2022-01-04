@@ -1,6 +1,7 @@
 package pages;
 
 import elements.CustomTextElement;
+import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.support.FindBy;
 
@@ -14,6 +15,7 @@ public class SmartphonePage extends BasePage {
         super();
     }
 
+    @Step("Get smartphone page tittle")
     public String getPageHeaderText() {
         logger.debug("Successfully retrieved smartphone page title");
         return headerText.getText();

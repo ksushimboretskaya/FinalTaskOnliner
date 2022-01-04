@@ -1,6 +1,7 @@
 package pages;
 
 import elements.CustomButton;
+import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.support.FindBy;
 
@@ -16,12 +17,14 @@ public class ElectronicsPage extends BasePage {
         super();
     }
 
+    @Step("Click on the mobile phones page button")
     public ElectronicsPage clickOnMobilePhoneButton() {
         mobilePhoneButton.click();
         logger.debug("Clicked successfully on the mobile phone button");
         return this;
     }
 
+    @Step("Click on the smartphones page button")
     public SmartphonePage clickOnSmartphoneButton() {
         smartphoneButton.click();
         logger.debug("Clicked successfully on the smartphone page button");
