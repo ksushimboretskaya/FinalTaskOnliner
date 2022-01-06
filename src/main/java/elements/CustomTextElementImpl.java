@@ -13,4 +13,14 @@ public class CustomTextElementImpl implements CustomTextElement {
     public String getText() {
         return wrappedElement.getText();
     }
+
+    @Override
+    public void sendKeys(String message) {
+        wrappedElement.sendKeys(message);
+    }
+
+    @Override
+    public boolean isDisplayed() {
+        return wrappedElement.isDisplayed();
+    }
 }

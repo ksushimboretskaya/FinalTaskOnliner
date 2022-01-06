@@ -1,0 +1,20 @@
+package testPages;
+
+import base.BaseTest;
+import io.qameta.allure.Description;
+import listeners.TestListener;
+import org.testng.Assert;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+import pages.HomePage;
+
+@Listeners({TestListener.class})
+public class ServicesPageTest extends BaseTest {
+
+    @Test(priority = 2, description = "[TC#3] -  Check filter ability in page 'Услуги'")
+    @Description("Check filter ability in page 'Услуги'")
+    public void verifyFilterAbility() {
+        String location = new HomePage().clickOnTheServicesPageButton().clickOnTheCheckBox().checkRegion();
+        Assert.assertEquals(location, "Минск", "The actual page title doesn't match expected");
+    }
+}

@@ -1,11 +1,92 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="FinalTaskOnliner">
+<suite name="All Test Suite" thread-count="10" parallel="tests">
+    <test name="CoursePageTest">
+        <classes>
+            <class name="testPages.CoursePageTest">
+                <methods>
+                    <include name="checkCoursePageUrl"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="DiscussionPageTest">
+        <classes>
+            <class name="testPages.DiscussionPageTest">
+                <methods>
+                    <include name="checkTheAbilityToWriteOnThePageFoeAnUnregisteredUser"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="VerifySmartphonePageTittleTest">
         <classes>
             <class name="testPages.HomePageTest">
                 <methods>
                     <include name="verifySmartphonePageTitle"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="VerifyLogoOnTheSiteTest">
+        <classes>
+            <class name="testPages.HomePageTest">
+                <methods>
+                    <include name="verifyLogoOnTheSite"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="VerifySearchingSystemWithNegativeDataTest">
+        <classes>
+            <class name="testPages.HomePageTest">
+                <methods>
+                    <include name="verifySearchingSystemWithNegativeData"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="VerifyRegistrationWithoutLoginAndPasswordTest">
+        <classes>
+            <class name="testPages.RegistrationPageTest">
+                <methods>
+                    <include name="verifyRegistrationWithoutLoginAndPassword"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="VerifyFilterAbilityTest">
+        <classes>
+            <class name="testPages.ServicesPageTest">
+                <methods>
+                    <include name="verifyFilterAbility"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="CheckAuthorizationWithIncorrectPasswordTest">
+        <classes>
+            <class name="testPages.SignInPageTest">
+                <methods>
+                    <include name="checkAuthorizationWithIncorrectPassword"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="CheckAuthorizationWithoutLoginAndPasswordTest">
+        <classes>
+            <class name="testPages.SignInPageTest">
+                <methods>
+                    <include name="checkAuthorizationWithoutLoginAndPassword"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="CheckWeatherIconTest">
+        <classes>
+            <class name="testPages.WeatherPageTest">
+                <methods>
+                    <include name="checkWeatherIcon"/>
                 </methods>
             </class>
         </classes>
