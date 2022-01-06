@@ -19,8 +19,6 @@ public class TestListener implements ITestListener {
     private static final String LOGFILE_NAME = "logfile.log";
     private static final Logger logger = Logger.getLogger("Test listener logger");
 
-    private final VideoRecorder recorder = new VideoRecorder();
-
     @Attachment(value = "logfile", type = "text/plain")
     public static byte[] addFileToAllureReport() throws IOException {
         return Files.readAllBytes(Paths.get(LOGFILE_NAME));
@@ -33,8 +31,9 @@ public class TestListener implements ITestListener {
 
     @Override
     public void onTestStart(ITestResult result) {
+      //  VideoRecorderManager.setVideoRecorder(new VideoRecorder());
         logger.info(String.format("Test [%s] has started", result.getName()));
-        recorder.startRecording();
+      //  VideoRecorderManager.getVideoRecorder().startRecording();
     }
 
     @Override
@@ -43,7 +42,7 @@ public class TestListener implements ITestListener {
         logger.info(String.format("Test [%s] has passed", testName));
         try {
             addFileToAllureReport();
-            addVideoToAllureReport(recorder.stopRecording(testName));
+          //  addVideoToAllureReport(VideoRecorderManager.getVideoRecorder().stopRecording(testName));
         } catch (IOException e) {
             logger.error("Unable to add file: " + e.getMessage());
         }
@@ -58,7 +57,7 @@ public class TestListener implements ITestListener {
         }
         try {
             addFileToAllureReport();
-            addVideoToAllureReport(recorder.stopRecording(testName));
+          //  addVideoToAllureReport(VideoRecorderManager.getVideoRecorder().stopRecording(testName));
         } catch (IOException e) {
             logger.error("Unable to add file: " + e.getMessage());
         }
@@ -70,7 +69,7 @@ public class TestListener implements ITestListener {
         logger.info(String.format("Test [%s] has skipped", testName));
         try {
             addFileToAllureReport();
-            addVideoToAllureReport(recorder.stopRecording(testName));
+        //    addVideoToAllureReport(VideoRecorderManager.getVideoRecorder().stopRecording(testName));
         } catch (IOException e) {
             logger.debug("Unable to add file: " + e.getMessage());
         }
@@ -82,7 +81,7 @@ public class TestListener implements ITestListener {
         logger.info(String.format("Test [%s] has failed but within success percentage", testName));
         try {
             addFileToAllureReport();
-            addVideoToAllureReport(recorder.stopRecording(testName));
+          //  addVideoToAllureReport(VideoRecorderManager.getVideoRecorder().stopRecording(testName));
         } catch (IOException e) {
             logger.error("Unable to add file: " + e.getMessage());
         }
@@ -94,7 +93,7 @@ public class TestListener implements ITestListener {
         logger.info(String.format("Test[%s] has failed with timeout", testName));
         try {
             addFileToAllureReport();
-            addVideoToAllureReport(recorder.stopRecording(testName));
+        //    addVideoToAllureReport(VideoRecorderManager.getVideoRecorder().stopRecording(testName));
         } catch (IOException e) {
             logger.error("Unable to add file: " + e.getMessage());
         }

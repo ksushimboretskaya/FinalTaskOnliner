@@ -12,7 +12,7 @@ public class ServicesPage extends BasePage {
     @FindBy(xpath = "(//*[contains(@class,'i-checkbox service-form__checkbox service-form__checkbox_base')])[1]")
     private CustomCheckBox regionCheckBox;
 
-    @FindBy(xpath = "//span[contains(@class,'service-offers__details-item service-offers__details-item_map-marker ng-binding ng-scope')]")
+    @FindBy(xpath = "(//div[contains(@class,'button-style button-style_default button-style_small service-tags__button ng-binding')])[1]")
     private CustomTextElement location;
 
     public ServicesPage() {

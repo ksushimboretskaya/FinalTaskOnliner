@@ -32,7 +32,7 @@ public class HomePageTest extends BaseTest {
         Assert.assertEquals(currentURL, ONLINER_URL, "The actual page doesn't match expected");
     }
 
-    @Test(priority = 3, description = "[TC#3 - Check searching system")
+    @Test(priority = 3, description = "[TC#2 - Check searching system")
     @Description("Test case description: check searching system with negative data")
     public void verifySearchingSystemWithNegativeData() {
         String actualSearchData = new HomePage().textInput().getSearchData();
