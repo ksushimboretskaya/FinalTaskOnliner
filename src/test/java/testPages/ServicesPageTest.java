@@ -10,10 +10,11 @@ import pages.HomePage;
 
 @Listeners({TestListener.class})
 public class ServicesPageTest extends BaseTest {
-    @Test(priority = 3, description = "[TC#3] -  Check filter ability in page 'Услуги'")
+
+    @Test(priority = 1, description = "[TC#3] -  Check filter ability in page 'Услуги'")
     @Description("Check filter ability in page 'Услуги'")
     public void verifyFilterAbility() {
-        String location = new HomePage().clickOnTheServicesPageButton().clickOnTheCheckBox().checkRegion();
+        String location = new HomePage().clickOnTheServicesPageButton().chooseRegionFilter().checkChosenRegionFilter();
         Assert.assertEquals(location, "Минск", "The actual page title doesn't match expected");
     }
 }

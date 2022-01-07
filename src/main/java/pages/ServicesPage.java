@@ -7,12 +7,13 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.support.FindBy;
 
 public class ServicesPage extends BasePage {
+
     private static final Logger logger = Logger.getLogger("Services page logger");
 
     @FindBy(xpath = "(//*[contains(@class,'i-checkbox service-form__checkbox service-form__checkbox_base')])[1]")
     private CustomCheckBox regionCheckBox;
 
-    @FindBy(xpath = "//span[contains(@class,'service-offers__details-item service-offers__details-item_map-marker ng-binding ng-scope')]")
+    @FindBy(xpath = "(//*[contains(@class,'button-style button-style_default button-style_small service-tags__button ng-binding')])[1]")
     private CustomTextElement location;
 
     public ServicesPage() {
@@ -20,14 +21,14 @@ public class ServicesPage extends BasePage {
     }
 
     @Step("Choose the region 'Минск'")
-    public ServicesPage clickOnTheCheckBox() {
+    public ServicesPage chooseRegionFilter() {
         regionCheckBox.click();
         logger.info("Clicked successfully on the checkbox with text 'Минск'");
         return new ServicesPage();
     }
 
-    @Step("Check items region")
-    public String checkRegion() {
+    @Step("Check region filter")
+    public String checkChosenRegionFilter() {
         logger.debug("Successfully retrieved region");
         return location.getText();
     }

@@ -9,6 +9,7 @@ import org.openqa.selenium.support.pagefactory.ElementLocator;
 import java.lang.reflect.Field;
 
 public class CustomElementDecorator extends DefaultFieldDecorator {
+
     private final ElementFactory elementFactory = new ElementFactoryImpl();
 
     public CustomElementDecorator(final SearchContext searchContext) {

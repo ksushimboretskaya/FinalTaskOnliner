@@ -12,7 +12,8 @@ import webdriver.DriverManager;
 
 import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnvironmentWriter;
 
-public class  BaseTest {
+public class BaseTest {
+
     public static final String ONLINER_URL = "https://www.onliner.by/";
     private static final Logger logger = LogManager.getLogger("Base test logger");
 

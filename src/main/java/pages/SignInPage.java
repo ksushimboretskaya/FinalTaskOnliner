@@ -5,9 +5,9 @@ import elements.CustomTextElement;
 import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.support.FindBy;
-import webdriver.DriverManager;
 
 public class SignInPage extends BasePage {
+
     private static final Logger logger = Logger.getLogger("SignIn page logger");
 
     @FindBy(xpath = "(//*[contains(@class,'auth-input auth-input_primary auth-input_base auth-form__input auth-form__input_width_full')])[1]")
@@ -29,14 +29,13 @@ public class SignInPage extends BasePage {
         super();
     }
 
-    @Step("Input correct login and incorrect password")
-    public SignInPage signInWithIncorrectData() {
-        loginField.sendKeys("kshimboretskaya@mail.ru");
+    @Step("Input login and password")
+    public SignInPage enterLoginAndPassword(String login, String password) {
+        loginField.sendKeys(login);
         logger.debug("Successfully input login");
-        passwordField.sendKeys("ksusha123");
+        passwordField.sendKeys(password);
         logger.debug("Successfully input password");
-        submitSignInButton.click();
-        logger.debug("Clicked successfully on the submit sign in button");
+        clickSubmit(submitSignInButton);
         return new SignInPage();
     }
 
@@ -46,23 +45,10 @@ public class SignInPage extends BasePage {
         return signInMessage.getText();
     }
 
-    @Step("Sign in without login and password")
-    public SignInPage signInWithoutLoginAndPassword() {
-        submitSignInButton.click();
-        logger.debug("Clicked successfully on the submit sign in button");
-        return new SignInPage();
-    }
-
     @Step("Open registration page")
     public RegistrationPage openRegistrationPage() {
         registrationButton.click();
         logger.debug("Clicked successfully on the registration page button");
         return new RegistrationPage();
-    }
-
-    @Step("Refresh page")
-    public HomePage refreshPage() {
-        DriverManager.getDriver().navigate().refresh();
-        return new HomePage();
     }
 }

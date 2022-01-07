@@ -7,7 +7,9 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage {
+
     private static final Logger logger = Logger.getLogger("Home page logger");
+    private static final String SEARCH_QUERY = "Дом в Минске";
 
     @FindBy(xpath = "//span[contains(@class,'b-main-navigation__text')and text() = 'Каталог']")
     private CustomButton catalogButton;
@@ -58,15 +60,9 @@ public class HomePage extends BasePage {
         return new HomePage();
     }
 
-    @Step("Get page url")
-    public String getPageUrl() {
-        logger.debug("Successfully retrieved current URL");
-        return driver.getCurrentUrl();
-    }
-
     @Step("Input text in the search field")
-    public HomePage textInput() {
-        searchField.sendKeys("Дом в Минске");
+    public HomePage searchQueryInput() {
+        searchField.sendKeys(SEARCH_QUERY);
         logger.debug("Successfully input text in the search field");
         return new HomePage();
     }

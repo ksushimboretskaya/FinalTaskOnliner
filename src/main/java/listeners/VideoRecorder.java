@@ -20,14 +20,13 @@ import static org.monte.media.VideoFormatKeys.*;
 
 public class VideoRecorder {
 
-    private final String RECORD_DIRECTORY = "videos\\";
     private static final Integer MOUSE_FRAME_RATE = 30;
     private static final Float QUALITY_VALUE = 1.0f;
     private static final Integer FRAME_INTERVAL_VALUE = 15 * 60;
     private static final Integer SCREEN_FRAME_RATE = 15;
     private static final Integer SCREEN_DEPTH_VALUE = 24;
     private static final String MOUSE_COLOR = "black";
-
+    private final String RECORD_DIRECTORY = "videos\\";
     private ScreenRecorder screenRecorder;
 
     public void startRecording() {

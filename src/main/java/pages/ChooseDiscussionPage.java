@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class ChooseDiscussionPage extends BasePage {
 
-    private static final Logger logger = Logger.getLogger("Discussion page logger");
+    private static final Logger logger = Logger.getLogger("Choose discussion page logger");
 
     @FindBy(xpath = "//*[contains(@class, 'topictitle') and text()='Задай вопрос A1']")
     private CustomButton chooseDiscussionButton;

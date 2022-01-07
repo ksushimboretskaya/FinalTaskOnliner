@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.support.FindBy;
 
 public class ElectronicsPage extends BasePage {
+
     private static final Logger logger = Logger.getLogger("Electronics page logger");
 
     @FindBy(xpath = "(//*[contains(@class,'catalog-navigation-list__aside-title')])[1]")

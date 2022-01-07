@@ -3,6 +3,7 @@ package webdriver;
 import org.openqa.selenium.WebDriver;
 
 public class DriverManager {
+
     private static final ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
     private static final DriverFactory.BrowserType DEFAULT_DRIVER = DriverFactory.BrowserType.CHROME;
 
