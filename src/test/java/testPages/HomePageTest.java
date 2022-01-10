@@ -4,13 +4,14 @@ import base.BaseTest;
 import io.qameta.allure.Description;
 import listeners.TestListener;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.HomePage;
 
 @Listeners(TestListener.class)
 public class HomePageTest extends BaseTest {
+
+    private static final String SEARCH_QUERY = "Дом в Минске";
 
     @Test(priority = 1, description = "[TC#1] - Verify smartphone page tittle")
     @Description("Test case description: verify smartphone page tittle on Smartphone page")
@@ -33,7 +34,7 @@ public class HomePageTest extends BaseTest {
     @Test(priority = 3, description = "[TC#3 - Check searching system")
     @Description("Test case description: check searching system with negative data")
     public void verifySearchingSystemWithNegativeData() {
-        String actualSearchData = new HomePage().inputQueryInTheSearchField().getSearchData();
+        String actualSearchData = new HomePage().inputQueryInTheSearchField(SEARCH_QUERY).getSearchData();
         Assert.assertNotEquals(actualSearchData, "Дом в Минске", "The actual search data is match expected");
     }
 }

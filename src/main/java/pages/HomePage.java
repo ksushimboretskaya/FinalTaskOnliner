@@ -1,12 +1,10 @@
 package pages;
 
-import data.SearchQuery;
 import elements.CustomButton;
 import elements.CustomTextElement;
 import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.support.FindBy;
-import utils.JsonUtils;
 
 public class HomePage extends BasePage {
 
@@ -63,9 +61,8 @@ public class HomePage extends BasePage {
     }
 
     @Step("Input text in the search field")
-    public HomePage inputQueryInTheSearchField() {
-        SearchQuery searchQuery = JsonUtils.readJsonSingleObject(SEARCH_DATA_FILE, SearchQuery.class);
-        searchField.sendKeys(searchQuery.getSearchQuery());
+    public HomePage inputQueryInTheSearchField(String searchQuery) {
+        searchField.sendKeys(searchQuery);
         logger.debug("Successfully input text in the search field");
         return new HomePage();
     }
