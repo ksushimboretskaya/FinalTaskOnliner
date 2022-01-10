@@ -61,6 +61,11 @@
             <version>${jave-native-win64}</version>
         </dependency>
         <dependency>
+            <groupId>com.bazaarvoice.jolt</groupId>
+            <artifactId>json-utils</artifactId>
+            <version>0.1.5</version>
+        </dependency>
+        <dependency>
             <groupId>ru.yandex.qatools.ashot</groupId>
             <artifactId>ashot</artifactId>
             <version>${ashot-version}</version>

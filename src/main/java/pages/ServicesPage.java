@@ -11,18 +11,18 @@ public class ServicesPage extends BasePage {
     private static final Logger logger = Logger.getLogger("Services page logger");
 
     @FindBy(xpath = "(//*[contains(@class,'i-checkbox service-form__checkbox service-form__checkbox_base')])[1]")
-    private CustomCheckBox regionCheckBox;
+    private CustomCheckBox minskRegionCheckBox;
 
     @FindBy(xpath = "(//*[contains(@class,'button-style button-style_default button-style_small service-tags__button ng-binding')])[1]")
-    private CustomTextElement location;
+    private CustomTextElement regionFilter;
 
     public ServicesPage() {
         super();
     }
 
-    @Step("Choose the region 'Минск'")
-    public ServicesPage chooseRegionFilter() {
-        regionCheckBox.click();
+    @Step("Choose the region")
+    public ServicesPage chooseMinskAsRegionFilter() {
+        minskRegionCheckBox.click();
         logger.info("Clicked successfully on the checkbox with text 'Минск'");
         return new ServicesPage();
     }
@@ -30,6 +30,6 @@ public class ServicesPage extends BasePage {
     @Step("Check region filter")
     public String checkChosenRegionFilter() {
         logger.debug("Successfully retrieved region");
-        return location.getText();
+        return regionFilter.getText();
     }
 }

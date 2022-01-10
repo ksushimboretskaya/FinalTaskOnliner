@@ -14,7 +14,7 @@ public class RegistrationPage extends BasePage {
     private CustomButton submitRegistrationButton;
 
     @FindBy(xpath = "//*[contains(@class,'growl-content')]")
-    private CustomTextElement message;
+    private CustomTextElement failedRegistrationMessage;
 
     @FindBy(xpath = "(//*[contains(@class, 'auth-input auth-input_primary auth-input_base auth-form__input auth-form__input_width_full')])[1]")
     private CustomTextElement loginField;
@@ -29,17 +29,14 @@ public class RegistrationPage extends BasePage {
         super();
     }
 
-    @Step("Enter the empty login and password")
-    public RegistrationPage enterTheEmptyLoginAndPassword(String login, String password) {
-        loginField.sendKeys(login);
-        passwordField.sendKeys(password);
-        repeatPasswordField.sendKeys(password);
-        clickSubmit(submitRegistrationButton);
+    @Step("Register without login and password")
+    public RegistrationPage registerWithoutLoginAndPassword() {
+        submitRegistrationButton.click();
         return new RegistrationPage();
     }
 
     @Step("Verify registration message")
     public boolean verifyErrorMessage() {
-        return message.isDisplayed();
+        return failedRegistrationMessage.isDisplayed();
     }
 }

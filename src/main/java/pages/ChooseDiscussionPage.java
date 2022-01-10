@@ -17,7 +17,7 @@ public class ChooseDiscussionPage extends BasePage {
     }
 
     @Step("Choose discussion")
-    public DiscussionPage chooseDiscussion() {
+    public DiscussionPage clickChooseDiscussionButton() {
         chooseDiscussionButton.click();
         logger.debug("Clicked successfully on the choose discussion button");
         return new DiscussionPage();

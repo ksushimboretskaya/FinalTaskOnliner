@@ -30,12 +30,18 @@ public class SignInPage extends BasePage {
     }
 
     @Step("Input login and password")
-    public SignInPage enterLoginAndPassword(String login, String password) {
+    public SignInPage signInWithEnteredLoginAndPassword(String login, String password) {
         loginField.sendKeys(login);
         logger.debug("Successfully input login");
         passwordField.sendKeys(password);
         logger.debug("Successfully input password");
-        clickSubmit(submitSignInButton);
+        submitSignInButton.click();
+        return new SignInPage();
+    }
+
+    @Step("Sign in without login and password")
+    public SignInPage signInWithoutLoginAndPassword() {
+        submitSignInButton.click();
         return new SignInPage();
     }
 

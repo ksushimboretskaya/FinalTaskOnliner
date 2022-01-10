@@ -16,7 +16,7 @@ public class DiscussionPageTest extends BaseTest {
     @Test(priority = 1, description = "[TC#7] - Check the ability to write on the page 'Форум' for an unregistered user")
     @Description("Test case description: check the ability to write on the page 'Форум' for an unregistered user")
     public void checkTheAbilityToWriteOnThePageFoeAnUnregisteredUser() {
-        String actualURL = new HomePage().openForumPage().openChooseDiscussionPage().chooseDiscussion().openReplyForm().getPageUrl();
+        String actualURL = new HomePage().openForumPage().openChooseDiscussionPage().clickChooseDiscussionButton().openReplyForm().getPageUrl();
         Assert.assertNotEquals(actualURL, REPLY_FORM_URL, "The actual url doesn't match expected");
     }
 }

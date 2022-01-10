@@ -14,7 +14,7 @@ public class ServicesPageTest extends BaseTest {
     @Test(priority = 1, description = "[TC#3] -  Check filter ability in page 'Услуги'")
     @Description("Check filter ability in page 'Услуги'")
     public void verifyFilterAbility() {
-        String location = new HomePage().clickOnTheServicesPageButton().chooseRegionFilter().checkChosenRegionFilter();
+        String location = new HomePage().clickOnTheServicesPageButton().chooseMinskAsRegionFilter().checkChosenRegionFilter();
         Assert.assertEquals(location, "Минск", "The actual page title doesn't match expected");
     }
 }

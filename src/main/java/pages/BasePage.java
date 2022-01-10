@@ -1,6 +1,5 @@
 package pages;
 
-import elements.CustomButton;
 import elements.CustomElementDecorator;
 import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
@@ -23,17 +22,5 @@ public class BasePage {
     public String getPageUrl() {
         logger.debug("Successfully retrieved page url");
         return driver.getCurrentUrl();
-    }
-
-    @Step("Refresh page")
-    public HomePage refreshPage() {
-        DriverManager.getDriver().navigate().refresh();
-        return new HomePage();
-    }
-
-    @Step("Click on the submit button")
-    public void clickSubmit(CustomButton submitButton) {
-        submitButton.click();
-        logger.debug("Clicked successfully on the submit button");
     }
 }

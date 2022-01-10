@@ -4,9 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import configuration.BrowserConfig;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 import webdriver.DriverFactory;
 import webdriver.DriverManager;
 
@@ -31,13 +29,13 @@ public class BaseTest {
                         + "/allure-results/");
     }
 
-    @BeforeClass(description = "Set up base page")
+    @BeforeMethod(description = "Set up base page")
     public void setUpPages() {
         DriverManager.getDriver().get(ONLINER_URL);
         logger.debug("Opening website: " + ONLINER_URL);
     }
 
-    @AfterSuite(description = "Quit driver")
+    @AfterMethod(description = "Quit driver")
     public void tearDown() {
         DriverManager.quitDriver();
     }
