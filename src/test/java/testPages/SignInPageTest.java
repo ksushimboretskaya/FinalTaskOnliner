@@ -17,14 +17,14 @@ public class SignInPageTest extends BaseTest {
     @Test(priority = 1, description = "[TC#5] - Check authorization with incorrect password", dataProvider = "incorrectPasswords")
     @Description("Test case description: check authorization with incorrect password")
     public void checkAuthorizationWithIncorrectPassword(String login, String password) {
-        String actualSignInMessage = new HomePage().openSignInForm().signInWithEnteredLoginAndPassword(login, password).getSignInMessage();
+        String actualSignInMessage = new HomePage().openSignInForm().signInWithLoginAndPassword(login, password).getSignInMessage();
         Assert.assertNotEquals(actualSignInMessage, EXPECTED_SIGN_IN_MESSAGE, "The actual message doesn't match expected");
     }
 
     @Test(priority = 2, description = "[TC#8] - Check authorization without data")
     @Description("Test case description: check authorization without login and password")
     public void checkAuthorizationWithoutLoginAndPassword() {
-        String actualSignInMessage = new HomePage().openSignInForm().signInWithoutLoginAndPassword().getSignInMessage();
+        String actualSignInMessage = new HomePage().openSignInForm().signInWithLoginAndPassword("","").getSignInMessage();
         Assert.assertNotEquals(actualSignInMessage, EXPECTED_SIGN_IN_MESSAGE, "The actual message doesn't match expected");
     }
 

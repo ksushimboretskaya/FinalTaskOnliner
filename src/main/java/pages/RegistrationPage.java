@@ -16,15 +16,6 @@ public class RegistrationPage extends BasePage {
     @FindBy(xpath = "//*[contains(@class,'growl-content')]")
     private CustomTextElement failedRegistrationMessage;
 
-    @FindBy(xpath = "(//*[contains(@class, 'auth-input auth-input_primary auth-input_base auth-form__input auth-form__input_width_full')])[1]")
-    private CustomTextElement loginField;
-
-    @FindBy(xpath = "(//*[contains(@class, 'auth-input auth-input_primary auth-input_base auth-form__input auth-form__input_width_full')])[2]")
-    private CustomTextElement passwordField;
-
-    @FindBy(xpath = "(//*[contains(@class, 'auth-input auth-input_primary auth-input_base auth-form__input auth-form__input_width_full')])[3]")
-    private CustomTextElement repeatPasswordField;
-
     public RegistrationPage() {
         super();
     }
@@ -32,11 +23,13 @@ public class RegistrationPage extends BasePage {
     @Step("Register without login and password")
     public RegistrationPage registerWithoutLoginAndPassword() {
         submitRegistrationButton.click();
+        logger.debug("Clicked successfully on the submit registration button");
         return new RegistrationPage();
     }
 
     @Step("Verify registration message")
-    public boolean verifyErrorMessage() {
+    public boolean isErrorMessageDisplayed() {
+        logger.debug("Successfully check error registration message");
         return failedRegistrationMessage.isDisplayed();
     }
 }

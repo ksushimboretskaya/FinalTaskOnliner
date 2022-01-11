@@ -16,10 +16,10 @@ public class ChooseDiscussionPage extends BasePage {
         super();
     }
 
-    @Step("Choose discussion")
+    @Step("Choose discussion with name 'Задай вопрос А1'")
     public DiscussionPage clickChooseDiscussionButton() {
         chooseDiscussionButton.click();
-        logger.debug("Clicked successfully on the choose discussion button");
+        logger.debug("Clicked successfully on the choose discussion button with name 'Задай вопрос А1'");
         return new DiscussionPage();
     }
 }

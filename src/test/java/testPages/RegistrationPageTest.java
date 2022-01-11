@@ -14,7 +14,7 @@ public class RegistrationPageTest extends BaseTest {
     @Test(priority = 1, description = "[TC#10] - Verify registration without data")
     @Description("Verify registration without login and password")
     public void verifyRegistrationWithoutLoginAndPassword() {
-        boolean registration = new HomePage().openSignInForm().openRegistrationPage().registerWithoutLoginAndPassword().verifyErrorMessage();
+        boolean registration = new HomePage().openSignInForm().openRegistrationPage().registerWithoutLoginAndPassword().isErrorMessageDisplayed();
         Assert.assertTrue(registration, "The registration completed successfully");
     }
 }

@@ -9,7 +9,6 @@ import org.openqa.selenium.support.FindBy;
 public class HomePage extends BasePage {
 
     private static final Logger logger = Logger.getLogger("Home page logger");
-    private static final String SEARCH_DATA_FILE = "/testData/searchQuery.json";
 
     @FindBy(xpath = "//span[contains(@class,'b-main-navigation__text')and text() = 'Каталог']")
     private CustomButton catalogButton;
@@ -56,14 +55,14 @@ public class HomePage extends BasePage {
     @Step("Click on the logotype")
     public HomePage clickOnTheLogotype() {
         logo.click();
-        logger.debug("Clicked successfully on the logo");
+        logger.debug("Clicked successfully on the logotype");
         return new HomePage();
     }
 
     @Step("Input text in the search field")
     public HomePage inputQueryInTheSearchField(String searchQuery) {
         searchField.sendKeys(searchQuery);
-        logger.debug("Successfully input text in the search field");
+        logger.debug("Successfully input query ["+searchQuery+"] in the search field");
         return new HomePage();
     }
 
