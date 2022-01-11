@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriverService;
 import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
+
     public static final int IMPLICITLY_WAIT = 10;
     public static final int PAGE_LOAD_TIMEOUT = 40;
     private static final String CHROMEDRIVER_EXE_PATH = "src/main/resources/chromedriver.exe";

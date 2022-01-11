@@ -3,9 +3,42 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="FinalTaskOnliner">
         <classes>
+            <class name="testPages.CoursePageTest">
+                <methods>
+                    <include name="checkCoursePageUrl"/>
+                </methods>
+            </class>
+            <class name="testPages.DiscussionPageTest">
+                <methods>
+                    <include name="checkTheAbilityToWriteOnThePageFoeAnUnregisteredUser"/>
+                </methods>
+            </class>
             <class name="testPages.HomePageTest">
                 <methods>
                     <include name="verifySmartphonePageTitle"/>
+                    <include name="verifyLogoOnTheSite"/>
+                    <include name="verifySearchingSystemWithNegativeData"/>
+                </methods>
+            </class>
+            <class name="testPages.RegistrationPageTest">
+                <methods>
+                    <include name="verifyRegistrationWithoutLoginAndPassword"/>
+                </methods>
+            </class>
+            <class name="testPages.ServicesPageTest">
+                <methods>
+                    <include name="verifyFilterAbility"/>
+                </methods>
+            </class>
+            <class name="testPages.SignInPageTest">
+                <methods>
+                    <include name="checkAuthorizationWithIncorrectPassword"/>
+                    <include name="checkAuthorizationWithoutLoginAndPassword"/>
+                </methods>
+            </class>
+            <class name="testPages.WeatherPageTest">
+                <methods>
+                    <include name="checkWeatherIcon"/>
                 </methods>
             </class>
         </classes>
